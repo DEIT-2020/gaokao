@@ -24,7 +24,12 @@ class PoetryChannel extends ApplicationChannel {
   Controller get entryPoint {
     final router = Router();
 
-
+    router.route('/queryAllPoetries').linkFunction((request) async{
+      final query = Query<PoetryEntity>(context);//拿到表的查询实例
+      final List<PoetryEntity> poetries=await query.fetch();//查询所有数据
+      poetries.sort((poetry1, poetry2) => poetry2.time - poetry1.time);
+      return Response.ok(poetries);//数据以json形式返回给客户端
+    });
 
     router.route('/queryPoetry/:id').linkFunction((request) async {
       final id = request.path.variables['id']; //获取路径上的id变量
@@ -46,6 +51,7 @@ class PoetryChannel extends ApplicationChannel {
       }
     });
 
+    
 
 
     return router;
