@@ -1,0 +1,13 @@
+<h3>Top10 诗词</h3>
+<poetry-search></poetry-search>
+<div class="grid grid-pad">
+  <a *ngFor="let poetry of poetries" class="col-1-4"
+     [routerLink]="poetryUrl(poetry.id)">
+    <div class="module poetry" style="position: relative;">
+      <span style="position: absolute; right: 24px;">{{poetry.time}}</span>
+      <h4>{{poetry.name}}</h4>
+      <h5>{{poetry.author}}</h5>
+    </div>
+  </a>
+</div>
+
