@@ -1,0 +1,23 @@
+<h2>Poetry</h2>
+<div>
+  <label>Poetry name:</label> <input #poetryName />
+  <!-- <button (click)="add(poetryName.value); poetryName.value=''">
+    Add
+  </button> -->
+</div>
+<ul class="poetries">
+  <li *ngFor="let poetry of poetries"
+      [class.selected]="poetry === selected"
+      (click)="onSelect(poetry)">
+    <span class="badge">{{poetry.id}}</span>
+    <span>{{poetry.name}}</span>
+    <!-- <button class="delete"
+      (click)="delete(poetry); $event.stopPropagation()">x</button> -->
+  </li>
+</ul>
+<div *ngIf="selected != null">
+  <h2>
+    {{selected.name | uppercase}} is my poetry
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>

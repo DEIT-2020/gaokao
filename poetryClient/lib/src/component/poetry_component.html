@@ -1,0 +1,29 @@
+<div *ngIf="poetry != null">
+  <h2>{{poetry.name}}</h2>
+  <div class="item">
+    <label>名称: </label>
+    <input [(ngModel)]="poetry.name" placeholder=""/>
+  </div>
+  <div class="item">
+    <label>体裁: </label>
+    <input [(ngModel)]="poetry.genre" placeholder=""/>
+  </div>
+  <div class="item">
+    <label>作者: </label>
+    <input [(ngModel)]="poetry.author" placeholder=""/>
+  </div>
+  <div class="item">
+    <label>朝代: </label>
+    <input [(ngModel)]="poetry.dynasty" placeholder=""/>
+  </div>
+  <div class="item">
+    <label style="position: relative;top: -80px;">内容: </label>
+    <textarea style="width:400px;height:150px;font-size: 14px;" [(ngModel)]="poetry.content"></textarea>
+  </div>
+  <div class="item">
+    <label style="position: relative;top: -80px;">翻译: </label>
+    <textarea style="width:400px;height:150px;font-size: 14px;" [(ngModel)]="poetry.translatedText"></textarea>
+  </div>
+  <!-- <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button> -->
+</div>

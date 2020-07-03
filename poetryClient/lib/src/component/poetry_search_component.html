@@ -1,0 +1,12 @@
+<div id="search-component">
+  <h4>查询</h4>
+  <input #searchBox id="search-box"
+         (change)="search(searchBox.value)"
+         (keyup)="search(searchBox.value)" />
+  <div>
+    <div *ngFor="let poetry of poetries | async"
+         (click)="gotoDetail(poetry)" class="search-result" >
+      {{poetry.name}} —— {{poetry.author}}
+    </div>
+  </div>
+</div>
